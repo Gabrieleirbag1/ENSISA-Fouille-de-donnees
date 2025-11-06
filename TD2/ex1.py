@@ -102,4 +102,9 @@ plt.show()
 
 # question 1.14
 df_sansTemoin = df[df['herbicide'] != 'aucun']
-print(df_sansTemoin)
+table = pd.pivot_table(df_sansTemoin, values="nb_plants_survivants", index="plante", columns="herbicide")
+ax = sns.heatmap(table,cmap='autumn')
+ax.set_yticklabels(['ble', 'liseron', 'chiedent'])
+ax.set_xticklabels(herbicides)
+plt.plot()
+plt.show()
